@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Asteroids!</h1>
+
+	<canvas id="asteroids"></canvas>
+
+
+	<script>
+		var width = 500;
+		var height = 500;
+		var canvas = document.getElementById('asteroids');
+		canvas.width = width;
+		canvas.height = height;
+		var context = canvas.getContext('2d');
+
+		// Canvas axes go from top left to bottom right
+		// RGB is red/green/blue. It's how you define all colors
+		// in HTML. RBG values go from 0-255 each.
+
+
+		context.fillStyle = "rgb(0, 255, 255)";
+
+		// fillRect (originX, originY, width, height)
+
+		var rectWidth = width/5;
+		var rectHeight = height/5;
+
+		context.fillRect( width/2 - rectWidth/2, height/2 - rectHeight/2, rectWidth, rectHeight);
+
+	</script>
+</body>
+</html>

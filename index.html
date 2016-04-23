@@ -35,7 +35,32 @@
 		var rectWidth = width/5;
 		var rectHeight = height/5;
 
+		
 		context.fillRect( width/2 - rectWidth/2, height/2 - rectHeight/2, rectWidth, rectHeight);
+
+
+		// x and y are the starting point for drawing the rectangle
+		var x = 0;
+		var y = 0;
+
+		function draw(){
+			// call clearRect with the entire size of the canvas to clear the whole thing
+			context.clearRect(0, 0, width, height);
+			
+			// Draw our rectangle at the target x,y position
+			context.fillRect( 
+				x, 
+				y, 
+				rectWidth, 
+				rectHeight);
+
+			// Update x and y for the next draw operation
+			x = x + 1;
+			y = y + 1;
+
+			window.requestAnimationFrame(draw);
+		}
+		window.requestAnimationFrame(draw);
 
 	</script>
 </body>

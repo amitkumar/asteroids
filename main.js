@@ -20,10 +20,20 @@ function draw(){
 	context.fillStyle = "rgb(0, 0, 0)";
 	context.fillRect(0, 0, width, height);
 	
+	drawTriangle(context, x, y, rectWidth, rectHeight);
 
+	// Update x and y for the next draw operation
+	y = y + movementRate;
+
+	window.requestAnimationFrame(draw);
+}
+window.requestAnimationFrame(draw);
+
+
+
+function drawTriangle(context, x, y, rectWidth, rectHeight){
 	// Draw a triangle with paths
 	context.strokeStyle = 'red';
-
 	// Start a new path
 	context.beginPath();
 	// Now define the path with .moveTo() and .lineTo() methods
@@ -34,11 +44,4 @@ function draw(){
 
 	// The path is only made visible when we call .stroke()
 	context.stroke();
-
-
-	// Update x and y for the next draw operation
-	y = y + movementRate;
-
-	window.requestAnimationFrame(draw);
 }
-window.requestAnimationFrame(draw);

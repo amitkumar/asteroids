@@ -335,10 +335,10 @@
 			// Start a new path
 			context.beginPath();
 			// Now define the path with .moveTo() and .lineTo() methods
-			context.moveTo(0, 0);
-			context.lineTo(100, 0);
-			context.lineTo(100, 100);
-			context.lineTo(0, 100);
+			context.moveTo(x, y);
+			context.lineTo(x + rectWidth, y);
+			context.lineTo(x + rectWidth, y + rectHeight);
+			context.lineTo(x, y + rectHeight);
 			context.closePath();
 
 			// The path is only made visible when we call .stroke()

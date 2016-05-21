@@ -315,16 +315,35 @@
 		function draw(){
 			// call clearRect with the entire size of the canvas to clear the whole thing
 			
+			// Fill the whole canvas with a black rectangle
 			context.fillStyle = "rgb(0, 0, 0)";
 			context.fillRect(0, 0, width, height);
 			
+
 			// Draw our rectangle at the target x,y position
-			context.fillStyle = "rgb(0, 255, 255)";
-			context.fillRect( 
-				x, 
-				y, 
-				rectWidth, 
-				rectHeight);
+			// context.fillStyle = "rgb(0, 255, 255)";
+			// context.fillRect( 
+			// 	x, 
+			// 	y, 
+			// 	rectWidth, 
+			// 	rectHeight);
+
+
+			// Draw a rectangle with paths
+			context.strokeStyle = 'red';
+
+			// Start a new path
+			context.beginPath();
+			// Now define the path with .moveTo() and .lineTo() methods
+			context.moveTo(0, 0);
+			context.lineTo(100, 0);
+			context.lineTo(100, 100);
+			context.lineTo(0, 100);
+			context.closePath();
+
+			// The path is only made visible when we call .stroke()
+			context.stroke();
+
 
 			// Update x and y for the next draw operation
 			y = y + movementRate;

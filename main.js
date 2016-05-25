@@ -26,7 +26,8 @@ function draw(){
 
 	// Update x and y for the next draw operation
 	y = y + movementRate;
-	rotationDegrees = rotationDegrees + 1;
+	// x = x + movementRate;
+	rotationDegrees = rotationDegrees + rotationRate;
 
 	if (rotationDegrees > 360){
 		rotationDegrees = 0;

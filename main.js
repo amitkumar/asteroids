@@ -24,10 +24,8 @@ function draw(){
 	
 	drawTriangle(context, x, y, rectWidth, rectHeight, rotationDegrees);
 
-	// drawTriangle(context, x * 2, y * 2, rectWidth * 2, rectHeight * 2);
-
 	// Update x and y for the next draw operation
-	// y = y + movementRate;
+	y = y + movementRate;
 	rotationDegrees = rotationDegrees + 1;
 
 	if (rotationDegrees > 360){
@@ -43,19 +41,20 @@ window.requestAnimationFrame(draw);
 function drawTriangle(context, x, y, rectWidth, rectHeight, rotationDegrees){
 	context.save();
 	
-	// var centerOfTriangle = {
-	// 	x : x + rectWidth/2,
-	// 	y : y + rectHeight/2
-	// };
-
 	var centerX = x + rectWidth/2;
 	var centerY = y + rectHeight/2;
 
 	context.translate(centerX, centerY); // Translate to center of rectangle
+	console.log('context.translate(centerX, centerY)', centerX, centerY);
 	
 	// Convert degrees to radians, because context.rotate needs radians
 	var radians = rotationDegrees * (Math.PI/180);
-	context.rotate(radians); 
+	context.rotate(radians);
+	console.log('rotationDegrees', rotationDegrees);
+	console.log('context.rotate(radians)', radians);
+
+	context.translate(-centerX, -centerY);
+	console.log('context.translate(-centerX, -centerY);', -centerX, -centerY);
 
 	// Draw a triangle with paths
 	context.strokeStyle = 'red';
@@ -63,12 +62,9 @@ function drawTriangle(context, x, y, rectWidth, rectHeight, rotationDegrees){
 	context.beginPath();
 
 	// Now define the path with .moveTo() and .lineTo() methods
-	var offsetTriangleX = x - rectWidth/2;
-	var offsetTriangleY = y - rectHeight/2;
-
-	context.moveTo(offsetTriangleX, offsetTriangleY);
-	context.lineTo(offsetTriangleX + rectWidth, offsetTriangleY);
-	context.lineTo(offsetTriangleX + rectWidth/2, offsetTriangleY + rectHeight);
+	context.moveTo(x, y);
+	context.lineTo(x + rectWidth, y);
+	context.lineTo(x + rectWidth/2, y + rectHeight);
 
 	context.closePath();
 

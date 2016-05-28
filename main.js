@@ -12,8 +12,8 @@ var x = 0;
 var y = 0;
 var rotationDegrees = 0;
 
-var movementRate = 0.1;
-var rotationRate = 0.1;
+var movementRate = .5;
+var rotationRate = .5;
 
 function draw(){
 	// call clearRect with the entire size of the canvas to clear the whole thing
@@ -38,6 +38,26 @@ function draw(){
 window.requestAnimationFrame(draw);
 
 
+window.addEventListener('keydown', function(event) {
+	console.log('keydown event.which', event.which);
+
+	switch(event.which){
+		case 37:
+		console.log('left');
+		break;
+		case 38:
+		console.log('up');
+		break;
+		case 39:
+		console.log('right');
+		break;
+		case 40:
+		console.log('down');
+		break;
+		default:
+	}
+});
+
 
 function drawTriangle(context, x, y, rectWidth, rectHeight, rotationDegrees){
 	context.save();
@@ -46,19 +66,19 @@ function drawTriangle(context, x, y, rectWidth, rectHeight, rotationDegrees){
 	var centerY = y + rectHeight/2;
 
 	context.translate(centerX, centerY); // Translate to center of rectangle
-	console.log('context.translate(centerX, centerY)', centerX, centerY);
+	// console.log('context.translate(centerX, centerY)', centerX, centerY);
 	
-	context.strokeStyle = 'white';
-	context.strokeRect(0, 0, width, height);
+	// context.strokeStyle = 'white';
+	// context.strokeRect(0, 0, width, height);
 
 	// Convert degrees to radians, because context.rotate needs radians
 	var radians = rotationDegrees * (Math.PI/180);
 	context.rotate(radians);
-	console.log('rotationDegrees', rotationDegrees);
-	console.log('context.rotate(radians)', radians);
+	// console.log('rotationDegrees', rotationDegrees);
+	// console.log('context.rotate(radians)', radians);
 
-	context.strokeStyle = 'yellow';
-	context.strokeRect(0, 0, width, height);
+	// context.strokeStyle = 'yellow';
+	// context.strokeRect(0, 0, width, height);
 
 	
 	// Draw a triangle with paths

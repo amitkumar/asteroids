@@ -12,7 +12,7 @@ var x = 0;
 var y = 0;
 var rotationDegrees = 0;
 
-var movementRate = .5;
+var movementRate = 5;
 var rotationRate = .5;
 
 function draw(){
@@ -25,7 +25,7 @@ function draw(){
 	drawTriangle(context, x, y, rectWidth, rectHeight, rotationDegrees);
 
 	// Update x and y for the next draw operation
-	y = y + movementRate;
+	// y = y + movementRate;
 	// x = x + movementRate;
 	rotationDegrees = rotationDegrees + rotationRate;
 
@@ -44,15 +44,19 @@ window.addEventListener('keydown', function(event) {
 	switch(event.which){
 		case 37:
 		console.log('left');
+		x = x - movementRate;
 		break;
 		case 38:
 		console.log('up');
+		y = y - movementRate;
 		break;
 		case 39:
 		console.log('right');
+		x = x + movementRate;
 		break;
 		case 40:
 		console.log('down');
+		y = y + movementRate;
 		break;
 		default:
 	}

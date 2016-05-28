@@ -12,8 +12,8 @@ var x = 0;
 var y = 0;
 var rotationDegrees = 0;
 
-var movementRate = 1;
-var rotationRate = 1;
+var movementRate = 0.1;
+var rotationRate = 0.1;
 
 function draw(){
 	// call clearRect with the entire size of the canvas to clear the whole thing
@@ -48,17 +48,29 @@ function drawTriangle(context, x, y, rectWidth, rectHeight, rotationDegrees){
 	context.translate(centerX, centerY); // Translate to center of rectangle
 	console.log('context.translate(centerX, centerY)', centerX, centerY);
 	
+	context.strokeStyle = 'white';
+	context.strokeRect(0, 0, width, height);
+
+
 	// Convert degrees to radians, because context.rotate needs radians
 	var radians = rotationDegrees * (Math.PI/180);
 	context.rotate(radians);
 	console.log('rotationDegrees', rotationDegrees);
 	console.log('context.rotate(radians)', radians);
 
+	context.strokeStyle = 'yellow';
+	context.strokeRect(0, 0, width, height);
+
 	context.translate(-centerX, -centerY);
 	console.log('context.translate(-centerX, -centerY);', -centerX, -centerY);
 
+
+	context.strokeStyle = 'green';
+	context.strokeRect(0, 0, width, height);
+
+
 	// Draw a triangle with paths
-	context.strokeStyle = 'red';
+	context.strokeStyle = 'white';
 	// Start a new path
 	context.beginPath();
 

@@ -5,8 +5,8 @@ canvas.width = width;
 canvas.height = height;
 var context = canvas.getContext('2d');
 
-var rectWidth = width/5;
-var rectHeight = height/10;
+var rectWidth = width/20;
+var rectHeight = height/40;
 
 var x = 0;
 var y = 0;
@@ -16,6 +16,12 @@ var yVector = 0;
 
 var movementRate = 2;
 var rotationRate = 10;
+
+
+var myRocket = new Rocket();
+console.log('myRocket', myRocket);
+myRocket.something = 5;
+console.log('myRocket after changing .something', myRocket);
 
 function draw(){
 	// call clearRect with the entire size of the canvas to clear the whole thing
@@ -29,12 +35,6 @@ function draw(){
 
 	drawTriangle(context, x, y, rectWidth, rectHeight, rotationDegrees);
 
-	// Update x and y for the next draw operation
-	// y = y + movementRate;
-	// x = x + movementRate;
-	// rotationDegrees = rotationDegrees + rotationRate;
-
-	console.log('rotationDegrees', rotationDegrees);
 	if (rotationDegrees > 360){
 		rotationDegrees = 0;
 	}

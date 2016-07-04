@@ -1,6 +1,8 @@
 class Rocket {
 	constructor(
 		context,
+		canvasWidth,
+		canvasHeight,
 		width, 
 		height, 
 		rotationDegrees, 
@@ -15,6 +17,8 @@ class Rocket {
 		// Add properties to "this" when each instance of the class should have that property
 
 		this.context = context;
+		this.canvasWidth = canvasWidth;
+		this.canvasHeight = canvasHeight;
 		this.width = width;
 		this.height = height;
 		this.rotationDegrees = rotationDegrees;
@@ -72,11 +76,51 @@ class Rocket {
 		// Variable x only lets me refer to the value of this.x from the time
 		// I did the variable assignment.
 
+		
+
 		this.x = this.x + this.xVector;
 		this.y = this.y + this.yVector;
+
+		console.log('update(), this.rotationDegrees', this.rotationDegrees);
+
 		if (this.rotationDegrees > 360){
 			this.rotationDegrees = 0;
 		}
+
+		if (this.isRocketAtBoundary()){
+			this.stopRocket();
+		}
+	}
+
+	isRocketAtBoundary(){
+		var result = false;
+
+		// At right boundary
+		if (this.x >= (this.canvasWidth - this.width)){
+			result = true;
+		}
+
+		// At bottom boundary
+		if (this.y >= (this.canvasHeight - this.height)){
+			result = true;
+		}
+
+		// At left boundary
+		if (this.x < 0){
+			result = true;
+		}
+		
+		// At top boundary
+		if (this.y < 0){
+			result = true;
+		}
+
+		return result;
+	}
+
+	stopRocket(){
+		this.xVector = 0;
+		this.yVector = 0;
 	}
 
 	draw(){

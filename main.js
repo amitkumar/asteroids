@@ -20,6 +20,8 @@ var rotationRate = 10;
 
 var myRocket = new Rocket(
 	context,
+	canvas.width,
+	canvas.height,
 	rectWidth, 
 	rectHeight, 
 	rotationDegrees, 

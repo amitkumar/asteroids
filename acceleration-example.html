@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		#container {
+			border: 1px solid black;
+			width: 500px;
+			height: 500px;
+			position: relative;
+		}
+		#box-1 {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			background: black;
+			top: 0px;
+			left: 0px;
+		}
+		#accelerating-box {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			background: blue;
+			top: 0px;
+			right: 0px;
+		}
+	</style>
+
+	<script>
+		var box1Top = 0;
+ 		var box1MovementRate = 1;
+
+ 		var acceleratingBoxTop = 0;
+ 		var acceleratingBoxMovementRate = 1;
+
+		function draw(){
+			var box1 = document.getElementById('box-1');
+			// console.log('box1Top', box1Top);
+			box1.style.top = box1Top + 'px';
+			box1Top = box1Top + box1MovementRate;
+
+
+			var acceleratingBox = document.getElementById('accelerating-box');
+			// console.log('acceleratingBox', acceleratingBoxTop);
+			acceleratingBox.style.top = acceleratingBoxTop + 'px';
+			acceleratingBoxTop = acceleratingBoxTop + acceleratingBoxMovementRate;
+
+			acceleratingBoxMovementRate = acceleratingBoxMovementRate + 1;
+			
+
+			window.requestAnimationFrame(draw);
+		}
+		window.requestAnimationFrame(draw);
+	</script>
+</head>
+<body>
+	<h1>Acceleration!</h1>
+	<div id="container">
+		<div id="box-1"></div>
+		<div id="accelerating-box"></div>
+	</div>
+</body>
+</html>

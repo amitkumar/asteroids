@@ -14,7 +14,6 @@ var rotationDegrees = 0;
 var xVector = 0;
 var yVector = 0;
 
-var movementRate = 2;
 var rotationRate = 10;
 
 
@@ -28,7 +27,6 @@ var myRocket = new Rocket(
 	rotationRate, 
 	xVector, 
 	yVector,
-	movementRate,
 	x,
 	y,
 	'red');

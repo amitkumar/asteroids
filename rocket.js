@@ -35,6 +35,8 @@ class Rocket {
 	}
 
 	handleKeydown(event){
+		event.preventDefault();
+		event.stopPropagation();
 		var rotationDegrees = this.rotationDegrees;
 		var rotationRate = this.rotationRate;
 		var movementRate = this.movementRate;
